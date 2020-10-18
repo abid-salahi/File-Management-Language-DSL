@@ -22,7 +22,7 @@
     
     b. Copy all files from one folder (i.e. the CopyFrom folder within Task-B) to another folder (have to create the second folder yourself using the language)
     
-    c. Partition all files in a folder (inside Task-C folder) by size. Put all files < 10 MB in one subfolder, and the others in another subfolder. (Hint: Use ListVariable and Forloop)
+    c. Partition all files in a folder (inside Task-C folder) by size. Put all files < 10 MB in one subfolder, and the others in another subfolder. (Hint: Use ListVariable and Forloop, create new folders using the language for moving the files around)
 
     d. Partition all files in a folder (inside Task-D folder) by size and extension. Put all files < 10 MB AND extension jpg in one subfolder then compress this folder, 
     and the other files move in another subfolder. (same hint as above)
