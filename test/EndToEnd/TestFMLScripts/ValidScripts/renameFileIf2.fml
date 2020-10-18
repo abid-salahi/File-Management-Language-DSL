@@ -1,0 +1,4 @@
+file1 = "test/EndToEnd/TestFiles/aTestFile.txt"
+if (file1.size > 10 GB) {
+    rename file1 to "aRenamedTestFile.txt"
+}

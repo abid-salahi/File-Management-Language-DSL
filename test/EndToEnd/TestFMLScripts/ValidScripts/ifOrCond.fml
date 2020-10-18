@@ -1,0 +1,16 @@
+if (True OR True){
+    newFold = "test/EndToEnd/TestFiles/newlyCreatedFolder";
+    create newFold;
+}
+aTest = "test/EndToEnd/TestFiles/aTestFile.txt"
+if (False OR aTest.isFile == True){
+    compress aTest
+}
+if (aTest.isDirectory == True OR True){
+    dest = "test/EndToEnd/TestFiles/anEmptyFolder"
+    move aTest to dest
+}
+filled = "test/EndToEnd/TestFiles/afilledFolder"
+if (filled.isFile == True OR True == aTest.isDirectory){
+    delete filled
+}

@@ -1,0 +1,14 @@
+if (True == True){
+    renameFolder = "test/EndToEnd/TestFiles/anEmptyFolder"
+    rename renameFolder to "aRenamedBooleanFolder"
+}
+
+aFilled = "test/EndToEnd/TestFiles/aFilledFolder"
+if (False == aFilled.isFile){
+    compress aFilled
+}
+
+if (aFilled.isDirectory != True){
+    delete aFilled
+}
+

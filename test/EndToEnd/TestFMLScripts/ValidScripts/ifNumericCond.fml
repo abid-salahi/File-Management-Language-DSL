@@ -1,0 +1,30 @@
+delFolder = "test/EndToEnd/TestFiles/anEmptyFolder"
+if (delFolder.size < 50 MB){
+    delete delFolder
+}
+
+copFile = "test/EndToEnd/TestFiles/aTestFile.txt"
+copLocation = "test/EndToEnd/TestFiles/aFilledFolder"
+if (copFile.created > 0){
+    copy copFile to copLocation
+}
+
+if (copFile.modified ==0){
+    compress copFile
+}
+
+if (0 >= copFile.modified){
+    delete copFile
+}
+
+if (copFile.modified <=copFile.created){
+    compress copFile
+}
+
+deleteFile = "test/EndToEnd/TestFiles/aFilledFolder/testfile1.txt"
+if (5 == 5){
+    delete deleteFile
+}
+
+
+

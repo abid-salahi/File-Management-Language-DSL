@@ -1,0 +1,7 @@
+file1 = "test/EndToEnd/TestFiles/aTestFile.txt"
+folder1 = "test/EndToEnd/TestFiles/anEmptyFolder"
+
+if (file1.name == "aTestFile.txt") {
+    copy file1 to folder1
+    rename file1 to "aRenamedTestFile.txt"
+}

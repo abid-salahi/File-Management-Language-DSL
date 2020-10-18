@@ -1,0 +1,8 @@
+testfldr = "test/EndToEnd/TestFiles/anEmptyFolder"
+
+if (testfldr.isDirectory == true){
+    testfile = "test/EndToEnd/TestFiles/aTestFile.txt"
+    if (testfile.size > 0 B){
+        move testfile to testfldr
+    }
+}

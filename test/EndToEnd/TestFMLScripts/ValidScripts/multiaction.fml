@@ -1,0 +1,11 @@
+testFiles = "test/EndToEnd/TestFiles"
+filledFolder = testFiles -> "aFilledFolder"
+emptyFolder = testFiles -> "anEmptyFolder"
+copy filledFolder to emptyFolder
+delete filledFolder
+rename emptyFolder to "notAnEmptyFolder"
+
+filledFolder = emptyFolder -> "aFilledFolder"
+testFile1 = filledFolder -> "testFile1.txt"
+rename testFile1 to "test.txt"
+move testFile1 to testFiles

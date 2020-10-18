@@ -1,0 +1,7 @@
+aFolder = "test/EndToEnd/TestFiles/anEmptyFolder"                      // declare aFolder
+if (aFolder.size > 0 B){                                               // check if aFolder is larger than 0 bytes
+    rename aFolder to "aNewFilledFolder"                               // if condition is true, rename it
+} else {
+    aFile = "test/EndToEnd/TestFiles/aTestFile.txt"                    // else declare aFile
+    copy aFile to aFolder                                              // and copy it to aFolder
+}

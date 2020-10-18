@@ -1,0 +1,19 @@
+if ("same" == "same"){
+    renameFolder = "test/EndToEnd/TestFiles/anEmptyFolder"
+    rename renameFolder to "aRenamedEmptyFolder"
+}
+
+aTest = "test/EndToEnd/TestFiles/aTestFile.txt"
+test1 = "test/EndToEnd/TestFiles/aFilledFolder/testfile1.txt"
+if (aTest.extension == test1.extension){
+    moveFolder = "test/EndToEnd/TestFiles/aFilledFolder"
+    copy aTest to moveFolder
+}
+
+if (aTest.name == "monkey"){
+    compress aTest
+}
+
+if ("testfile1.txt" == test1.name){
+    delete aTest
+}

@@ -1,0 +1,3 @@
+files[] = "test/EndToEnd/TestFiles/*"
+testFiles = "test/EndToEnd/TestFiles"
+files2[] = testFiles -> "*.txt"

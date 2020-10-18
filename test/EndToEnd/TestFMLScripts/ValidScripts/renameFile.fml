@@ -1,0 +1,2 @@
+file1 = "test/EndToEnd/TestFiles/aTestFile.txt"
+rename file1 to "aRenamedTestFile.txt"

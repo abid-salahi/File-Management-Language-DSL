@@ -1,0 +1,4 @@
+if (False){
+    file1 = "test/EndToEnd/TestFiles/aTestFile.txt"
+    delete file1
+}

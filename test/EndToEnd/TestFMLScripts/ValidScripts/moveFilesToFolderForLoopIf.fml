@@ -1,0 +1,7 @@
+files[] = "test/EndToEnd/TestFiles/aFilledFolder/*"
+folder1 = "test/EndToEnd/TestFiles/anEmptyFolder"
+for (f in files[]) {
+    if (f.name == "testfile1.txt") {
+        copy f to folder1
+    }
+}

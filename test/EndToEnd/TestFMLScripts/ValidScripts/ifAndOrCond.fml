@@ -1,0 +1,12 @@
+testF1 = "test/EndToEnd/TestFiles/aFilledFolder/testfile1.txt"
+testF2 = "test/EndToEnd/TestFiles/aFilledFolder/testfile2.txt"
+aFill = "test/EndToEnd/TestFiles/aFilledFolder"
+anEmpty = "test/EndToEnd/TestFiles/anEmptyFolder"
+aTestF = "test/EndToEnd/TestFiles/aTestfile.txt"
+if (((testF1.size>0 B) OR (testF2.size<0 B)) AND ((anEmpty.created > 0) AND (aFill.modified >= 0))){
+    delete aTestF;
+}
+
+if (((testF1.name=="testfile.txt") AND (testF2.extension=="txt")) OR (anEmpty.isFile != aFill.isDirectory)){
+    delete testF1;
+}

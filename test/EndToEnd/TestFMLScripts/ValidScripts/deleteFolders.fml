@@ -1,0 +1,4 @@
+folder1 = "test/EndToEnd/TestFiles/aFilledFolder"
+folder2 = "test/EndToEnd/TestFiles/anEmptyFolder"
+delete folder1
+delete folder2

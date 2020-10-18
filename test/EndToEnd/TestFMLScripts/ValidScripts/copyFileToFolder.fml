@@ -1,0 +1,3 @@
+file1 = "test/EndToEnd/TestFiles/aTestFile.txt"              // declare file1
+folder1 = "test/EndToEnd/TestFiles/anEmptyFolder"            // declare folder1
+copy file1 to folder1                                        // copy file1 to folder 1

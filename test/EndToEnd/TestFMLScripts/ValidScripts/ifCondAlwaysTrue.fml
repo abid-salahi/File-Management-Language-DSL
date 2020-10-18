@@ -1,0 +1,4 @@
+if (True){
+    compFolder = "test/EndToEnd/TestFiles/aFilledFolder"
+    compress compFolder
+}

@@ -1,0 +1,2 @@
+file1 = "test/EndToEnd/TestFiles/aTestFile.txt"          // declare file1
+delete file1                                             // delete file1

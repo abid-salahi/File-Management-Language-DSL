@@ -1,0 +1,3 @@
+file1 = "test/EndToEnd/TestFiles/aTestFile.txt"
+folder1 = "test/EndToEnd/TestFiles/anEmptyFolder"
+move file1 to folder1

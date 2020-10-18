@@ -1,0 +1,2 @@
+myFile = "test/EndToEnd/TestFiles/aTestFile.txt"
+compress myFile

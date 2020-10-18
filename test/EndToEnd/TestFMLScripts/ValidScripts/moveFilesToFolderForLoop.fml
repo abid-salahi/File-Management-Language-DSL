@@ -1,0 +1,5 @@
+files[] = "test/EndToEnd/TestFiles/aFilledFolder/*"
+folder1 = "test/EndToEnd/TestFiles/anEmptyFolder"
+for (f in files[]) {
+    move f to folder1
+}
