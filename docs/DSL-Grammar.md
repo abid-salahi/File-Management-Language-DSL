@@ -1,259 +1,60 @@
-# File Management Language - Grammar
+# User Study Format
 
-### A sample script
+## Preparation
 
-For all files under `/some/folder`, if the file is greater than 50 mb, move it to `/other/folder`:
+- Get the zip file from https://drive.google.com/file/d/1Ctdlp1f_Fil2oRYcXvxgSXqLJW3VxiXM/view?usp=sharing
+- Unzip the folder, go inside and open a bash terminal (e.g. Git Bash) from inside the unzipped directory.
+- Go to the docs/DSL-Grammar.md file for reference to what our language looks like and how to use it (plus the grammar definition).
+- There are a series of folders with files set up for each task within sample-files folder
+- For each task, create a new .fml file (e.g. Task-A.fml) inside the main directory (the unzipped directory your Bash Terminal is open), which is very similar to a text file, and then using our language, write the code needed to perform the task.
+- After you are confident with your .fml file for the task, you can execute it as an argument passed into the FML.jar file which contains our application. You can do as follow:
 
-```
+      ./FML.sh PATH-TO-YOUR-FML-FILE.fml
 
-someFolder = '/some/folder'                  # paths are either absolute or relative to the location of the script file
-otherFolder = '/other/folder'
+- You should see a series of logs for execution of the program (or an error in case your input does not satisfy the FML language constraints). Afterwards, check the expected output is as noted below.
 
-filesToCheck[] = someFolder -> '*'           # wildcards allow creating a list with all files that match pattern
 
-for (file in filesToCheck[]) {
-    if (file.size > 50 MB) {         # can be 'B', 'KB', 'MB', 'GB', 'TB', 'PB'
-        move file to otherFolder
-    }
-}
-```
+## Steps
 
-### Reference a file or folder
+1. Give user Grammar Documentation
+2. Get them to perform one of these tasks (increasing difficulty):
 
-Reference a folder:
+    a. Rename a single file on your computer
+    
+    b. Copy all files from one folder to another folder (have to create second folder with script)
+    
+    c. Partition all files in a folder by size. Put all files < 10 mb in one subfolder, and the others in another subfolder (Hint: Use ListVariable and Forloop)
 
-```
-myFolder = '/path/to/some/folder'                 # stores a reference to folder in variable myFolder
-```
+    d. Partition all files in a folder by size and extension. Put all files < 10 mb AND extension .png in one subfolder then compress this folder, 
+    and the other files move in another subfolder. (same hint as above)
 
-Reference a file
 
-```
-myFile = '/path/to/some/file.ext'                  # stores a reference to file.ext in variable myfile
-```
+## Expected Output
+For each task, check the following is true within your file system from File Explorer on your windows machine after execution of scripts:
 
-Reference a file relative to a folder
+    a. The name for the file RenameMe.txt inside Task-A folder must be changed to your choosing.
+    b. A new folder with a name of your choosing should be created inside Task-B, all files from the folder CopyFrom
+       should now be copied to inside your newly created folder.
+    c. 2 new folders with names of your choosing created inside Task-C, one containing all the files previously existing
+       in Task-C that are less than 10 MB in size, the other folder containing the rest of files.
+    d. 2 new folders with names of your choosing created inside Task-D, one containing all the files previously existing
+       in Task-D that are less than 10 MB in size and have extension of .png (this would be the zipped folder), the other folder containing the rest of files.
 
-```
-myFile = myFolder -> 'file.ext'                    # stores a reference to myFolder/file.ext
-```
 
-Reference multiple files and folders
 
-```
-subFilesAndFolders[] = '/path/to/some/parent/*'      # subFilesAndFolders[] is a list of all files and folders under /parent
+## Audience
 
+Students with programming experience equivalent to CS >= 3rd year
+Access to Windows
 
-# Alternatively
+# Survey Questions
 
-parent = '/path/to/some/parent'
-subFilesAndFolders[] = parent -> '*'                 # subFilesAndFolders[] is a list of all files and folders under /parent
-```
+Rate language on 1-10:
 
-### Access file/folder attributes
+* Easy to learn
+* Efficient to code
+* Memorable
+* Not prone to errors
+* Satisfactory to use
 
-```
-myFile.name            # returns file name
-myFile.size            # returns file size in bytes
-myFile.created         # returns UNIX timestamp of creation
-myFile.modified        # returns UNIX timestamp of last modification
-myFile.extension       # returns the extension as a string. eg. 'exe'. '' for folders.
-myFile.parent          # returns reference to parent folder
-myFile.isFile          # boolean value. True if myFile is a file.
-myFile.isDirectory     # boolean value. True if myFile is a directory/folder
-```
-
-### Define a condition
-
-```
-if (some condition) {
-    # enters block on condition being true
-}
-```
-
-### Define multiple conditions
-
-```
-if (some condition) {
-    # enters block on condition being true
-    # action here
-    if (some other condition) {
-        # enters block on second condition being true
-    }
-}
-
-if (some condition and some condition) {
-}
-```
-
-OR
-
-```
-if ((some condition) AND (some other condition)) {       # AND, OR, NOT
-    # enters block on both conditions being true
-}
-```
-
-### Define an action
-
-Action format:
-
-```
-<command> <target> (to | into <destination>)?
-```
-
-All commands:
-
-```
-Copy
-Move
-Delete
-Rename
-Create
-Compress # ?
-```
-
-Copy a file:
-
-```
-copy someFile to otherFolder      # special cases: overwrite?
-```
-
-Delete a file:
-
-```
-delete someFile
-```
-
-Create a folder:
-
-```
-myFolder = '/some/folder'
-Create myFolder
-
-# Create myFile throws error. Cannot create files.
-```
-
-### Define multiple actions
-
-```
-myFolder = '/some/folder'
-otherFolder = '/some/otherFolder'
-
-Create myFolder
-copy myFolder to otherFolder
-```
-
-### Define a conditional action
-
-```
-if (file.size > 50 MB) {         # can be 'B', 'KB', 'MB', 'GB', 'TB', 'PB'
-    move file to otherFolder
-}
-```
-
-### Grammar
-
-```
-PROGRAM ::= STATEMENT*
-STATEMENT ::= ACTION | IF_STATEMENT | FOR_LOOP | DECLARATION | RETURN
-
-ACTION ::= COMMAND FILE_VARIABLE (PREPOSITION ACTION_DESTINATION)?
-IF_STATEMENT ::= 'if(' CONDITION ') {' PROGRAM '}' ('else' '{' PROGRAM '}')?
-FOR_LOOP ::= 'for(' ITERATOR ') {' PROGRAM '}'
-DECLARATION ::= DIRECT_DECLARATION | REFERENCE_DECLARATION
-RETURN ::= 'return'
-
-COMMAND ::= 'copy' | 'move' | 'delete' | 'rename' | 'create' | 'compress'
-PREPOSITION ::= 'to'
-ACTION_DESTINATION ::= [FILE_VARIABLE | ('"' FILENAME '"')]
-
-FILE_VARIABLE ::= [a-zA-Z0-9]+
-LIST_VARIABLE ::= FILE_VARIABLE '[]'
-VARIABLE ::= FILE_VARIABLE | LIST_VARIABLE
-
-CONDITION ::= OR_CONDITION
-OR_CONDITION ::= AND_CONDITION ('OR' AND_CONDITION)*
-AND_CONDITION ::= NEGATION ('AND' NEGATION)*
-NEGATION ::= (NEGATION_OPERATOR NEGATION) | BOOLEAN
-BOOLEAN ::= 'True' | 'False' | COMPARISON | CONDITION | '(' BOOLEAN ')'
-COMPARISON ::= TERM COMPARISON_OPERATOR TERM
-TERM ::= ATTRIBUTE | (NUMBER (UNIT)?) | STRING | BOOLEAN
-ATTRIBUTE ::= FILE_VARIABLE '.' ATTRIBUTE_NAME
-ATTRIBUTE_NAME ::= 'name' | 'size' | 'created' | 'modified' | 'extension' | 'parent' | 'isFile' | 'isDirectory'
-NUMBER ::= [0-9]+
-UNIT :: = 'B' | 'KB' | 'MB' | 'GB' | 'TB' | 'PB'
-
-NEGATION_OPERATOR ::= 'NOT' | '!'
-COMPARISON_OPERATOR := '<' | '>' | '==' | '>=' | '<=' | '!='
-
-ITERATOR ::= FILE_VARIABLE 'in' LIST_VARIABLE
-
-DIRECT_DECLARATION ::= VARIABLE '=' PATH
-REFERENCE_DECLARATION ::= VARIABLE '=' VARIABLE
-
-PATH ::= ABSOLUTE_PATH | RELATIVE_PATH | VARIABLE '->' PATH
-ABSOLUTE_PATH ::= DRIVENAME RELATIVE_PATH?
-RELATIVE_PATH ::= FILENAME | (FILENAME '\' RELATIVE_PATH)
-
-DRIVENAME ::= [A-Z] ':\'
-FILENAME ::= [\*0-9a-zA-Z\_\-\.\s]+
-```
-
-### Validation Rules
-
-These are rules that check for syntactically correct but semantically wrong inputs.
-
-These rules should be checked **in addition** to checking that the program meets the syntax above. Syntax rules are not repeated below.
-
-Validation rules are static (i.e. does not check if files/folders exist) and are checked prior to evaluation
-
-#### PROGRAM
-
-1. Variables declared before usage for all statements
-2. Each statement is independently valid
-
-#### ACTION
-
-1. Command is valid
-2. File variable is valid
-3. If Command is one of 'copy' or 'move' then destination is a file variable
-4. If Command is 'rename' then destination is a file name
-5. If Command is 'delete', 'create' or 'compress' then no preposition and destination are given
-
-#### IF_STATEMENT
-
-1. Condition is valid
-2. First Program is valid. Second Program is null or valid.
-
-#### FOR_LOOP
-
-1. Iterator is valid
-2. Program is valid
-
-#### COMPARISON
-
-1. Both terms should evaluate to the same type
-2. If the operator is not '==' or '!=', then the terms must evaluate to numbers
-
-#### ITERATOR
-
-1. File variable must not have been declared before
-
-#### DIRECT_DECLARATION
-
-1. If path contains wildcard ('*') then variable must be list variable
-
-#### REFERENCE_DECLARATION
-
-1. Variable on right must have been declared before
-
-#### PATH
-
-1. In the VARIABLE '->' PATH case, the variable must have been declared before
-
-
-
-
-
-
+Open comments:
