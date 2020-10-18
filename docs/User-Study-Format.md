@@ -16,8 +16,7 @@
 
 ## Tasks
 
-1. Give user Grammar Documentation
-2. Get them to perform one of these tasks (increasing difficulty):
+1. Language grammar at https://github.com/abid-salahi/File-Management-Language-DSL/blob/master/docs/DSL-Grammar.md
 
     a. Rename a single file on your computer
     
