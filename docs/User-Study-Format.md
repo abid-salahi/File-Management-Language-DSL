@@ -38,7 +38,8 @@ For each task, check the following is true within your file system from File Exp
     c. 2 new folders with names of your choosing created inside Task-C, one containing all the files previously existing
        in Task-C that are less than 10 MB in size, the other folder containing the rest of files.
     d. 2 new folders with names of your choosing created inside Task-D, one containing all the files previously existing
-       in Task-D that are less than 10 MB in size and have extension of .jpg (this would be the zipped folder), the other folder containing the rest of files.
+       in Task-D that are less than 10 MB in size and have extension of .jpg (this would be the zipped folder), the other 
+       folder containing the rest of files.
 
 
 
