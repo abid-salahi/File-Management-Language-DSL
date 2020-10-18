@@ -2,7 +2,17 @@
 
 ## Preparation
 
-Create sample starter folders as zips and provide it to the user
+- Get the zip file from https://drive.google.com/file/d/1Ctdlp1f_Fil2oRYcXvxgSXqLJW3VxiXM/view?usp=sharing
+- Unzip the folder, go inside and open a bash terminal (e.g. Git Bash) from inside the unzipped directory.
+- Go to the docs/DSL-Grammar.md file for reference to what our language looks like and how to use it (plus the grammar definition).
+- There are a series of folders with files set up for each task within sample-files folder
+- For each task, create a new .fml file (e.g. Task-A.fml) inside the main directory (the unzipped directory your Bash Terminal is open), which is very similar to a text file, and then using our language, write the code needed to perform the task.
+- After you are confident with your .fml file for the task, you can execute it as an argument passed into the FML.jar file which contains our application. You can do as follow:
+
+        ./FML.jar YOUR-FML-FILE.fml
+
+- You should see a series of logs for execution of the program (or an error in case your input does not satisfy the FML language constraints). Afterwards, check the expected output is as noted below.
+
 
 ## Steps
 
