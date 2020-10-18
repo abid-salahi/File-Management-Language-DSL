@@ -6,7 +6,7 @@
 - Unzip the folder, go inside and open a bash terminal (e.g. Git Bash) from inside the unzipped directory.
 - Go to the docs/DSL-Grammar.md file for reference to what our language looks like and how to use it (plus the grammar definition).
 - There are a series of folders with files set up for each task within sample-files folder
-- For each task, create a new .fml file (e.g. Task-A.fml) inside the main directory (the unzipped directory you downloaded where your Bash Terminal is open at), which is very similar to a text file, and then using our language, write the code needed to perform the task.
+- For each task, create a new .fml file (e.g. Task-A.fml) inside the main directory (the unzipped directory you downloaded where your Bash Terminal is open at), which is very similar to a text file, and then using our language, write the code needed to perform each task (noted below).
 - After you are confident with your .fml file for the task, you can execute it as an argument passed into the FML.jar file which contains our application. You can do as follow (-v flag used to show the logger output to see program execution):
 
       ./FML.sh -v PATH-TO-YOUR-FML-FILE.fml
@@ -14,7 +14,7 @@
 - You should see a series of logs for execution of the program (or an error in case your input does not satisfy the FML language constraints). Afterwards, check the expected output is as noted below.
 
 
-## Steps
+## Tasks
 
 1. Give user Grammar Documentation
 2. Get them to perform one of these tasks (increasing difficulty):
