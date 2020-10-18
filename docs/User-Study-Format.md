@@ -9,7 +9,7 @@
 - For each task, create a new .fml file (e.g. Task-A.fml) inside the main directory (the unzipped directory your Bash Terminal is open), which is very similar to a text file, and then using our language, write the code needed to perform the task.
 - After you are confident with your .fml file for the task, you can execute it as an argument passed into the FML.jar file which contains our application. You can do as follow:
 
-        ./FML.jar YOUR-FML-FILE.fml
+        ./FML.sh PATH-TO-YOUR-FML-FILE.fml
 
 - You should see a series of logs for execution of the program (or an error in case your input does not satisfy the FML language constraints). Afterwards, check the expected output is as noted below.
 
